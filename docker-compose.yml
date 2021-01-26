@@ -4,12 +4,10 @@ services:
     image: "rinkeby.dnp.dappnode.eth:0.4.5"
     build:
       context: ./build
-      args:
-        - UPSTREAM_VERSION=v1.9.24
     volumes:
       - "rinkeby:/root/.ethereum/rinkeby"
     environment:
-      - "EXTRA_OPTS=--rpcapi eth,net,web3,txpool"
+      - "EXTRA_OPTS=--rpcapi eth,net,web3,txpool --nousb --cache.noprefetch"
     ports:
       - "30303"
       - 30303/udp
